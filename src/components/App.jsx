@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contatsOperations';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -20,7 +21,7 @@ export const App = () => {
       <h2>Contacts</h2>
       <Filter />
       <ContactList />
-      {isLoading && <h2>Wait for host to respond...</h2>}
+      {isLoading && <Loader/>}
     </>
   );
 };

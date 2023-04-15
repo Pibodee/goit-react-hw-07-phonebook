@@ -14,7 +14,7 @@ const schema = yup.object().shape({
       excludeEmptyString: true,
     })
     .required('Required'),
-  number: yup
+  phone: yup
     .string()
     .matches(
       /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 
 const initialValues = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 export const ContactForm = () => {
@@ -48,7 +48,7 @@ export const ContactForm = () => {
     dispatch(addContact(values));
     resetForm({
       name: '',
-      number: '',
+      phone: '',
     });
   };
 
@@ -59,15 +59,15 @@ export const ContactForm = () => {
       validationSchema={schema}
     >
       <StyledForm autoComplete="off">
-        <label htmlFor="name">
+        <label>
           Name
           <StyledField type="text" name="name"></StyledField>
           <ErrorMessage name="name" />
         </label>
-        <label htmlFor="name">
+        <label>
           Number
-          <StyledField type="tel" name="number"></StyledField>
-          <ErrorMessage name="number" />
+          <StyledField type="tel" name="phone"></StyledField>
+          <ErrorMessage name="phone" />
         </label>
         <FormButton type="submit">Add Contact</FormButton>
       </StyledForm>
